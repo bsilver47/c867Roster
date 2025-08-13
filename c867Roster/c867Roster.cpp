@@ -1,7 +1,5 @@
-// Written by Benjamin Sterling Silver
-// This program is part of the C867 Scripting and Programming - Applications course at Western Governors University
-
 // c867Roster.cpp : This file contains the 'main' function. Program execution begins and ends there.
+//
 
 #include <iostream>
 
