@@ -91,6 +91,6 @@ public:
 		std::cout << "Degree Program: "
 			<< static_cast<std::string>(degreeProgram)
 			<< "\n";
-		std::cout << "A1 \t First Name: " << firstName << "\t Last Name: " << lastName << "\t Email: " << email << "\t Age: " << age << "\t daysInCourse: " << daysInCourse[3] << "\t Degree Program: " << degreeProgram << "\n";
+		std::cout << studentID << "\t First Name: " << firstName << "\t Last Name: " << lastName << "\t Email: " << email << "\t Age: " << age << "\t daysInCourse: " << daysInCourse[3] << "\t Degree Program: " << degreeProgram << "\n";
 	}
 };
