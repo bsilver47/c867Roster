@@ -37,4 +37,58 @@ class Roster {
 		// Add the student to the class roster array
 		classRosterArray.push_back(student);
 	}
+	void add(string studentID, string firstName, string lastName, string email, int age, int daysInCourse[], DegreeProgram degreeProgram) {
+		Student student;
+		student.studentID = studentID;
+		student.firstName = firstName;
+		student.lastName = lastName;
+		student.email = email;
+		student.age = age;
+		for (int i = 0; i < 3; i++) {
+			student.daysInCourse[i] = daysInCourse[i];
+		}
+		student.degreeProgram = degreeProgram;
+		classRosterArray.push_back(student);
+	}
+	void remove(string studentID) {
+		for (auto it = classRosterArray.begin(); it != classRosterArray.end(); ++it) {
+			if (it->studentID == studentID) {
+				classRosterArray.erase(it);
+				return;
+			}
+		}
+		std::cout << "Student ID " << studentID << " not found.\n";
+	}
+	void printAll() {
+		for (const auto& student : classRosterArray) {
+			student.accessor();
+		}
+	}
+	void printAverageDaysInCourse(string studentID) {
+		for (const auto& student : classRosterArray) {
+			if (student.studentID == studentID) {
+				double average = (student.daysInCourse[0] + student.daysInCourse[1] + student.daysInCourse[2]) / 3.0;
+				std::cout << "Average days in course for " << studentID << ": " << average << "\n";
+				return;
+			}
+		}
+		std::cout << "Student ID " << studentID << " not found.\n";
+	}
+	void printInvalidEmails() {
+		for (const auto& student : classRosterArray) {
+			if (student.email.find('@') == std::string::npos || student.email.find('.') == std::string::npos || student.email.find(' ') != std::string::npos) {
+				std::cout << "Invalid email: " << student.email << "\n";
+			}
+		}
+	}
+	void printByDegreeProgram(DegreeProgram degreeProgram) {
+		for (const auto& student : classRosterArray) {
+			if (student.degreeProgram == degreeProgram) {
+				student.accessor();
+			}
+		}
+	}
+	void destructor() {
+		classRosterArray.clear();
+	}
 };
