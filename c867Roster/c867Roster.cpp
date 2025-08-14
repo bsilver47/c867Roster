@@ -15,7 +15,7 @@ int main()
 
     "A4,Erin,Black,Erin.black@comcast.net,22,50,58,40,SECURITY",
 
-    "A5,Benjamin,Silver,bsilve10@wgu.edu,26,7,10,15, COMPUTER_SCIENCE" };
+    "A5,Benjamin,Silver,bsilve10@wgu.edu,26,7,10,15,SOFTWARE" };
 
     std::cout << "Hello World!\n";
 }
