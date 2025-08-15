@@ -79,18 +79,6 @@ public:
 	}
 
 	printer() {
-		std::cout << "Student ID: " << studentID << "\n";
-		std::cout << "First Name: " << firstName << "\n";
-		std::cout << "Last Name: " << lastName << "\n";
-		std::cout << "Email: " << email << "\n";
-		std::cout << "Age: " << age << "\n";
-		std::cout << "Days in Course: ["
-			<< daysInCourse[0] << ", "
-			<< daysInCourse[1] << ", "
-			<< daysInCourse[2] << "]\n";
-		std::cout << "Degree Program: "
-			<< static_cast<std::string>(degreeProgram)
-			<< "\n";
 		std::cout << studentID << "\t First Name: " << firstName << "\t Last Name: " << lastName << "\t Email: " << email << "\t Age: " << age << "\t daysInCourse: " << daysInCourse[3] << "\t Degree Program: " << degreeProgram << "\n";
 	}
 };

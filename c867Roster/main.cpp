@@ -16,5 +16,22 @@ void main() {
 	// Step 2: Create an instance of Roster
 	Roster classRoster;
 	// Step 3: Add students to the roster
-		
+	studentData[] = student.studentData[]
+	classRoster.add(studentData);
+
+
+	// Step 4: Implement the pseudo code to truly work in the context
+	classRoster.printAll();
+	classRoster.printInvalidEmails();
+	for (const auto& student : classRoster.classRosterArray) {
+		classRoster.printAverageDaysInCourse(student.studentID);
+	}
+	classRoster.remove("A3");
+	classRoster.printAll();
+	std::cout << "End of program.\n";
+	std::cout << "Exiting program...\n";
+	classRoster.destructor();
+	return;
+
+
 }
