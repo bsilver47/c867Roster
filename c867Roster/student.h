@@ -1,4 +1,9 @@
 #include <iostream>
+#include <string>
+#include <"degree.h">
+#include <"student.cpp">
+#include <"roster.h">
+#include <"roster.cpp">
 
 enum class DegreeProgram {
 	degree1 = "SECURITY",
@@ -16,7 +21,7 @@ public:
 	int daysInCourse[3];
 	DegreeProgram degreeProgram;
 
-	void accessor () {
+	accessor () {
 		std::cout << "Student ID: " << studentID << "\n";
 		std::cout << "First Name: " << firstName << "\n";
 		std::cout << "Last Name: " << lastName << "\n";
@@ -32,6 +37,51 @@ public:
 	}
 
 	mutator() {
+		std::cout << "Enter Student ID: ";
+		std::cin >> studentID;
+		student.studentID = studentID;
+		std::cout << "Enter First Name: ";
+		std::cin >> firstName;
+		student.firstName = firstName;
+		std::cout << "Enter Last Name: ";
+		std::cin >> lastName;
+		student.lastName = lastName;
+		std::cout << "Enter Email: ";
+		std::cin >> email;
+		student.email = email;
+		std::cout << "Enter Age: ";
+		std::cin >> age;
+		student.age = age;
+		std::cout << "Enter Days in Course (3 values): ";
+		for (int i = 0; i < 3; ++i) {
+			std::cin >> daysInCourse[i];
+			student.daysInCourse[i] = daysInCourse[i];
+		}
+		int degreeChoice;
+		std::cout << "Select Degree Program (1 for SECURITY, 2 for NETWORK, 3 for SOFTWARE): ";
+		std::cin >> degreeChoice;
+		switch (degreeChoice) {
+			case 1:
+				degreeProgram = DegreeProgram::degree1;
+				student.degreeProgram = DegreeProgram::degree1;
+				break;
+			case 2:
+				degreeProgram = DegreeProgram::degree2;
+				student.degreeProgram = DegreeProgram::degree2;
+				break;
+			case 3:
+				degreeProgram = DegreeProgram::degree3;
+				student.degreeProgram = DegreeProgram::degree3;
+				break;
+			default:
+				std::cout << "Invalid choice. Defaulting to SECURITY.\n";
+				degreeProgram = DegreeProgram::degree1;
+				student.degreeProgram = DegreeProgram::degree1;
+				break;
+		}
+	}
+
+	constructor() {
 		std::cout << "Enter Student ID: ";
 		std::cin >> studentID;
 		std::cout << "Enter First Name: ";
@@ -50,32 +100,20 @@ public:
 		std::cout << "Select Degree Program (1 for SECURITY, 2 for NETWORK, 3 for SOFTWARE): ";
 		std::cin >> degreeChoice;
 		switch (degreeChoice) {
-			case 1:
-				degreeProgram = DegreeProgram::degree1;
-				break;
-			case 2:
-				degreeProgram = DegreeProgram::degree2;
-				break;
-			case 3:
-				degreeProgram = DegreeProgram::degree3;
-				break;
-			default:
-				std::cout << "Invalid choice. Defaulting to SECURITY.\n";
-				degreeProgram = DegreeProgram::degree1;
-				break;
+		case 1:
+			degreeProgram = DegreeProgram::degree1;
+			break;
+		case 2:
+			degreeProgram = DegreeProgram::degree2;
+			break;
+		case 3:
+			degreeProgram = DegreeProgram::degree3;
+			break;
+		default:
+			std::cout << "Invalid choice. Defaulting to SECURITY.\n";
+			degreeProgram = DegreeProgram::degree1;
+			break;
 		}
-	}
-
-	constructor() {
-		studentID = "";
-		firstName = "";
-		lastName = "";
-		email = "";
-		age = 0;
-		for (int i = 0; i < 3; ++i) {
-			daysInCourse[i] = 0;
-		}
-		degreeProgram = DegreeProgram::degree1; // Default to SECURITY
 	}
 
 	printer() {

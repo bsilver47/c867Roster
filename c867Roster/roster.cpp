@@ -1,4 +1,9 @@
 #include <iostream>
+#include <string>
+#include <"degree.h">
+#include <"student.h">
+#include <"student.cpp">
+#include <"roster.h">
 
 class Roster {
 	Student classRosterArray[];
@@ -8,7 +13,7 @@ class Roster {
 		line = studentData[i];
 		linesize = sizeof(line);
 		studentArray = [];
-		dataEntry = ""
+		dataEntry = "";
 		for (int j=0; j<linesize; j++) {
 			if (line[j] == ',') {
 				studentArray.append(dataEntry);
@@ -34,8 +39,7 @@ class Roster {
 		} else if (studentArray[8] == "SOFTWARE") {
 			student.degreeProgram = DegreeProgram::degree3;
 		}
-		// Add the student to the class roster array
-		classRosterArray.push_back(student);
+		classRosterArray[sizeof(classRosterArray)] = student;
 	}
 	void add(string studentID, string firstName, string lastName, string email, int age, int daysInCourse[], DegreeProgram degreeProgram) {
 		Student student;
@@ -48,7 +52,7 @@ class Roster {
 			student.daysInCourse[i] = daysInCourse[i];
 		}
 		student.degreeProgram = degreeProgram;
-		classRosterArray.push_back(student);
+		classRosterArray[sizeof(classRosterArray)] = student;
 	}
 	void remove(string studentID) {
 		for (auto it = classRosterArray.begin(); it != classRosterArray.end(); ++it) {
@@ -89,6 +93,6 @@ class Roster {
 		}
 	}
 	void destructor() {
-		classRosterArray.clear();
+		delete[] classRosterArray;
 	}
 };

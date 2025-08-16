@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include <"degree.h">
 #include <"student.h">
 #include <"student.cpp">
@@ -32,6 +33,5 @@ void main() {
 	std::cout << "Exiting program...\n";
 	classRoster.destructor();
 	return;
-
-
 }
+ 
