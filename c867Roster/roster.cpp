@@ -1,9 +1,9 @@
 #include <iostream>
 #include <string>
-#include <"degree.h">
-#include <"student.h">
-#include <"student.cpp">
-#include <"roster.h">
+#include "degree.h"
+#include "student.h"
+#include "student.cpp"
+#include "roster.h"
 
 class Roster {
 	Student classRosterArray[];
