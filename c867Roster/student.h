@@ -2,8 +2,11 @@
 #include <string>
 #include "degree.h"
 #include "student.cpp"
-#include "roster.h"
 #include "roster.cpp"
+//#ifndef STUDENT_H
+//#define STUDENT_H
+# pragma once
+using namespace std;
 
 enum class DegreeProgram {
 	degree1 = "SECURITY",
@@ -110,3 +113,5 @@ public:
 		std::cout << studentID << "\t First Name: " << firstName << "\t Last Name: " << lastName << "\t Email: " << email << "\t Age: " << age << "\t daysInCourse: " << daysInCourse[3] << "\t Degree Program: " << degreeProgram << "\n";
 	}
 };
+
+#endif // STUDENT_H

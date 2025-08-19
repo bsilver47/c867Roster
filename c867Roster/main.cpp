@@ -3,11 +3,9 @@
 #include "degree.h"
 #include "student.h"
 #include "student.cpp"
-#include "roster.h"
 #include "roster.cpp"
 
-
-void main() {
+int main() {
 	// Step 1: Print the header
 	std::cout << "Course: C867 - Scripting and Programming - Applications \n";
 	std::cout << "Language: C++ \n";
@@ -34,4 +32,6 @@ void main() {
 	classRoster.destructor();
 	return;
 }
+
+
  
