@@ -7,17 +7,46 @@
 
 class Roster {
 public:
-	Student classRosterArray[];
+	void add(string studentID, string firstName, string lastName, string email, int age, int daysInCourse[], DegreeProgram degreeProgram, Student classRosterArray[]) {
+		Student student;
+		student.studentID = studentID;
+		student.firstName = firstName;
+		student.lastName = lastName;
+		student.email = email;
+		student.age = age;
+		for (int i = 0; i < 3; i++) {
+			student.daysInCourse[i] = daysInCourse[i];
+		}
+		student.degreeProgram = degreeProgram;
+		classRosterArray[sizeof(classRosterArray)] = student;
+	}
+	void remove(string studentID, Roster classRoster) {
+		for (Student student : classRoster) {
+			if (student.studentID == studentID) {
+				std::cout << "Removing student with ID: " << studentID << "\n";
+				classRoster.erase(student);
+				return;
+			}
+		}
+		//for (auto it = classRosterArray.begin(); it != classRosterArray.end(); ++it) {
+		//	if (it->studentID == studentID) {
+		//		classRosterArray.erase(it);
+		//		return;
+		//	}
+		//}
+		std::cout << "Student ID " << studentID << " not found.\n";
+	}
 	void rosterParserArray(string studentData[]) {
+		Student classRosterArray[sizeof(studentData)];
 		int size = sizeof(studentData);
 		for (int i = 0; i < size; i++) {
 			string line = studentData[i];
 			int linesize = sizeof(line);
-			Student studentArray[];
+			Student studentArray[5];
 			string dataEntry = "";
 			for (int j = 0; j < linesize; j++) {
 				if (line[j] == ',') {
-					studentArray.add(dataEntry);
+					studentArray[j].add(dataEntry);
 					dataEntry = "";
 				}
 				else {
@@ -46,35 +75,7 @@ public:
 		}
 	}
 	
-	void add(string studentID, string firstName, string lastName, string email, int age, int daysInCourse[], DegreeProgram degreeProgram) {
-		Student student;
-		student.studentID = studentID;
-		student.firstName = firstName;
-		student.lastName = lastName;
-		student.email = email;
-		student.age = age;
-		for (int i = 0; i < 3; i++) {
-			student.daysInCourse[i] = daysInCourse[i];
-		}
-		student.degreeProgram = degreeProgram;
-		classRosterArray[sizeof(classRosterArray)] = student;
-	}
-	void remove(string studentID) {
-		for (Student student : classRosterArray) {
-			if (student.studentID == studentID) {
-				std::cout << "Removing student with ID: " << studentID << "\n";
-				classRosterArray.erase(student);
-				return;
-			}
-		}
-		//for (auto it = classRosterArray.begin(); it != classRosterArray.end(); ++it) {
-		//	if (it->studentID == studentID) {
-		//		classRosterArray.erase(it);
-		//		return;
-		//	}
-		//}
-		std::cout << "Student ID " << studentID << " not found.\n";
-	}
+
 	void printAll() {
 		for (Student student : classRosterArray) {
 			student.accessor();

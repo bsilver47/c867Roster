@@ -15,7 +15,7 @@ int realMain() {
 	// Step 2: Create an instance of Roster
 	Roster classRoster;
 	// Step 3: Add students to the roster
-	string studentData[] =
+	string studentData[5] =
 	{ "A1,John,Smith,John1989@gm ail.com,20,30,35,40,SECURITY",
 	"A2,Suzan,Erickson,Erickson_1990@gmailcom,19,50,30,40,NETWORK",
 	"A3,Jack,Napoli,The_lawyer99yahoo.com,19,20,40,33,SOFTWARE",
@@ -29,13 +29,13 @@ int realMain() {
 	// Step 4: Implement the pseudo code to truly work in the context
 	classRoster.printAll();
 	classRoster.printInvalidEmails();
-	for (int i=0; i < sizeof(classRoster.classRosterArray); i++) {
-		classRoster.printAverageDaysInCourse(classRoster.classRosterArray[i].studentID);
+	for (int i=0; i < sizeof(classRoster); i++) {
+		classRoster.printAverageDaysInCourse(classRoster[i].studentID);
 	}
 	/*for (Student student : classRoster.classRosterArray) {
 		classRoster.printAverageDaysInCourse(student.studentID);
 	}*/
-	classRoster.remove("A3");
+	classRoster.remove("A3", classRoster);
 	classRoster.printAll();
 	std::cout << "End of program.\n";
 	std::cout << "Exiting program...\n";
