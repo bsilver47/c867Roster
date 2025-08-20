@@ -6,25 +6,26 @@
 #include "roster.h"
 
 class Roster {
+public:
 	Student classRosterArray[];
-	const int size = sizeof(studentData);
 	void rosterParserArray(string studentData[]) {
+		int size = sizeof(studentData);
 		for (int i = 0; i < size; i++) {
 			string line = studentData[i];
 			int linesize = sizeof(line);
-			Student studentArray = [];
-			dataEntry = "";
+			Student studentArray[];
+			string dataEntry = "";
 			for (int j = 0; j < linesize; j++) {
 				if (line[j] == ',') {
-					studentArray.append(dataEntry);
+					studentArray.add(dataEntry);
 					dataEntry = "";
 				}
 				else {
 					dataEntry += line[j];
 				}
 			}
-			Student student;
-			student.studentID = studentArray[0];
+			Student student = studentArray; // Is this backwards?
+			/*student.studentID = studentArray[0];
 			student.firstName = studentArray[1];
 			student.lastName = studentArray[2];
 			student.email = studentArray[3];
@@ -41,7 +42,7 @@ class Roster {
 			else if (studentArray[8] == "SOFTWARE") {
 				student.degreeProgram = DegreeProgram::degree3;
 			}
-			classRosterArray[sizeof(classRosterArray)] = student;
+			classRosterArray[sizeof(classRosterArray)] = student;*/
 		}
 	}
 	
@@ -59,15 +60,22 @@ class Roster {
 		classRosterArray[sizeof(classRosterArray)] = student;
 	}
 	void remove(string studentID) {
-		for (auto it = classRosterArray.begin(); it != classRosterArray.end(); ++it) {
-			if (it->studentID == studentID) {
-				classRosterArray.erase(it);
+		for (Student student : classRosterArray) {
+			if (student.studentID == studentID) {
+				std::cout << "Removing student with ID: " << studentID << "\n";
+				classRosterArray.erase(student);
 				return;
 			}
 		}
+		//for (auto it = classRosterArray.begin(); it != classRosterArray.end(); ++it) {
+		//	if (it->studentID == studentID) {
+		//		classRosterArray.erase(it);
+		//		return;
+		//	}
+		//}
 		std::cout << "Student ID " << studentID << " not found.\n";
 	}
-	void printAll(classRosterArray) {
+	void printAll() {
 		for (Student student : classRosterArray) {
 			student.accessor();
 		}

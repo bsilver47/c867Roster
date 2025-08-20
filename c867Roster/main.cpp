@@ -5,7 +5,7 @@
 #include "student.cpp"
 #include "roster.cpp"
 
-int main() {
+int realMain() {
 	// Step 1: Print the header
 	std::cout << "Course: C867 - Scripting and Programming - Applications \n";
 	std::cout << "Language: C++ \n";
@@ -15,7 +15,7 @@ int main() {
 	// Step 2: Create an instance of Roster
 	Roster classRoster;
 	// Step 3: Add students to the roster
-	const string studentData[] =
+	string studentData[] =
 	{ "A1,John,Smith,John1989@gm ail.com,20,30,35,40,SECURITY",
 	"A2,Suzan,Erickson,Erickson_1990@gmailcom,19,50,30,40,NETWORK",
 	"A3,Jack,Napoli,The_lawyer99yahoo.com,19,20,40,33,SOFTWARE",
@@ -29,16 +29,19 @@ int main() {
 	// Step 4: Implement the pseudo code to truly work in the context
 	classRoster.printAll();
 	classRoster.printInvalidEmails();
-	for (const auto& student : classRoster.classRosterArray) {
-		classRoster.printAverageDaysInCourse(student.studentID);
+	for (int i=0; i < sizeof(classRoster.classRosterArray); i++) {
+		classRoster.printAverageDaysInCourse(classRoster.classRosterArray[i].studentID);
 	}
+	/*for (Student student : classRoster.classRosterArray) {
+		classRoster.printAverageDaysInCourse(student.studentID);
+	}*/
 	classRoster.remove("A3");
 	classRoster.printAll();
 	std::cout << "End of program.\n";
 	std::cout << "Exiting program...\n";
 	classRoster.destructor();
-	return;
-}
+	return 0;
+};
 
 
  

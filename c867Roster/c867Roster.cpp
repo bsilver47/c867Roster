@@ -1,3 +1,6 @@
 #include "main.cpp"
 
-main();
+int main() {
+	return realMain();
+};
+
