@@ -1,18 +1,26 @@
 #include <iostream>
 #include <string>
-#include "degree.h"
-#include "student.cpp"
-#include "roster.cpp"
+//#include "degree.h"
+//#include "roster.cpp"
 //#ifndef STUDENT_H
 //#define STUDENT_H
 # pragma once
 using namespace std;
 
+//enum class DegreeProgram {
+//	degree1 = "SECURITY",
+//	degree2 = "NETWORK",
+//	degree3 = "SOFTWARE"
+//};
+
 enum class DegreeProgram {
-	degree1 = "SECURITY",
-	degree2 = "NETWORK",
-	degree3 = "SOFTWARE"
+	SECURITY,
+	NETWORK,
+	SOFTWARE
 };
+DegreeProgram degree1 = SECURITY;
+DegreeProgram degree2 = NETWORK;
+DegreeProgram degree3 = SOFTWARE;
 
 class Student {
 public:
@@ -114,4 +122,4 @@ public:
 	}
 };
 
-#endif // STUDENT_H
+//#endif // STUDENT_H
