@@ -18,9 +18,15 @@ enum class DegreeProgram {
 	NETWORK,
 	SOFTWARE
 };
-DegreeProgram degree1 = "SECURITY";
-DegreeProgram degree2 = "NETWORK";
-DegreeProgram degree3 = "SOFTWARE";
+
+std::string degreeProgramToString(DegreeProgram degree) {
+	switch (degree) {
+		case DegreeProgram::SECURITY: return "SECURITY";
+		case DegreeProgram::NETWORK: return "NETWORK";
+		case DegreeProgram::SOFTWARE: return "SOFTWARE";
+		default: return "UNKNOWN";
+	}
+}
 
 class Student {
 public:
@@ -32,7 +38,7 @@ public:
 	int daysInCourse[3];
 	DegreeProgram degreeProgram;
 
-	accessor () {
+	void accessor () {
 		std::cout << "Student ID: " << studentID << "\n";
 		std::cout << "First Name: " << firstName << "\n";
 		std::cout << "Last Name: " << lastName << "\n";
@@ -43,11 +49,11 @@ public:
 				  << daysInCourse[1] << ", "
 				  << daysInCourse[2] << "]\n";
 		std::cout << "Degree Program: " 
-				  << static_cast<std::string>(degreeProgram) 
+				  << degreeProgramToString(degreeProgram)
 				  << "\n";
 	}
 
-	mutator() {
+	void mutator() {
 		std::cout << "Enter Student ID: ";
 		std::cin >> studentID;
 		std::cout << "Enter First Name: ";
@@ -67,22 +73,22 @@ public:
 		std::cin >> degreeChoice;
 		switch (degreeChoice) {
 			case 1:
-				degreeProgram = DegreeProgram::degree1;
+				degreeProgram = DegreeProgram::SECURITY;
 				break;
 			case 2:
-				degreeProgram = DegreeProgram::degree2;
+				degreeProgram = DegreeProgram::NETWORK;
 				break;
 			case 3:
-				degreeProgram = DegreeProgram::degree3;
+				degreeProgram = DegreeProgram::SOFTWARE;
 				break;
 			default:
 				std::cout << "Invalid choice. Defaulting to SECURITY.\n";
-				degreeProgram = DegreeProgram::degree1;
+				degreeProgram = DegreeProgram::SECURITY;
 				break;
 		}
 	}
 
-	constructor() {
+	void constructor() {
 		std::cout << "Enter Student ID: ";
 		std::cin >> studentID;
 		std::cout << "Enter First Name: ";
@@ -102,23 +108,23 @@ public:
 		std::cin >> degreeChoice;
 		switch (degreeChoice) {
 		case 1:
-			degreeProgram = DegreeProgram::degree1;
+			degreeProgram = DegreeProgram::SECURITY;
 			break;
 		case 2:
-			degreeProgram = DegreeProgram::degree2;
+			degreeProgram = DegreeProgram::NETWORK;
 			break;
 		case 3:
-			degreeProgram = DegreeProgram::degree3;
+			degreeProgram = DegreeProgram::SOFTWARE;
 			break;
 		default:
 			std::cout << "Invalid choice. Defaulting to SECURITY.\n";
-			degreeProgram = DegreeProgram::degree1;
+			degreeProgram = DegreeProgram::SECURITY;
 			break;
 		}
 	}
 
-	printer() {
-		std::cout << studentID << "\t First Name: " << firstName << "\t Last Name: " << lastName << "\t Email: " << email << "\t Age: " << age << "\t daysInCourse: " << daysInCourse[3] << "\t Degree Program: " << degreeProgram << "\n";
+	void printer() {
+		std::cout << studentID << "\t First Name: " << firstName << "\t Last Name: " << lastName << "\t Email: " << email << "\t Age: " << age << "\t daysInCourse: " << daysInCourse[3] << "\t Degree Program: " << degreeProgramToString(degreeProgram) << "\n";
 	}
 };
 
