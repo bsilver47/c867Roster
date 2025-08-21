@@ -1,9 +1,11 @@
 #include <iostream>
 #include <string>
+#include <vector>
 #include "degree.h"
 #include "student.h"
 //#include "student.cpp"
 #include "roster.h"
+using namespace std;
 
 class Roster {
 public:
@@ -21,20 +23,38 @@ public:
 		classRosterArray[sizeof(classRosterArray)] = student;
 	}
 	void remove(string studentID, Student classRoster[]) {
-		for (Student student : classRoster) {
-			if (student.studentID == studentID) {
-				std::cout << "Removing student with ID: " << studentID << "\n";
-				classRoster.erase(student);
-				return;
+		int removalStudentIndex = -1;
+		for (int i = 0; i < sizeof(classRoster); i++) {
+			if (studentID == classRoster->studentID) {
+				std::cout << "Found student to be removed, preparing removal now";
+				removalStudentIndex = i;
+				break;
 			}
 		}
-		//for (auto it = classRosterArray.begin(); it != classRosterArray.end(); ++it) {
-		//	if (it->studentID == studentID) {
-		//		classRosterArray.erase(it);
+		if (removalStudentIndex != -1) {
+			for (int i = removalStudentIndex; i < sizeof(classRoster) - 1; i++) {
+				classRoster[i] = classRoster[i + 1];
+			}
+			classRoster[sizeof(classRoster) - 1] = Student(); // Clear the last element
+		}
+		else {
+
+		};
+		
+		//for (Student& student : classRoster) {
+		//	if (student.studentID == studentID) {
+		//		std::cout << "Removing student with ID: " << studentID << "\n";
+		//		classRoster.erase(student);
 		//		return;
 		//	}
 		//}
-		std::cout << "Student ID " << studentID << " not found.\n";
+		/*for (auto it = classRoster.begin(); it != classRoster.end(); ++it) {
+			if (it->studentID == studentID) {
+				classRoster.erase(it);
+				return;
+			}
+		}*/
+		//std::cout << "Student ID " << studentID << " not found.\n";
 	}
 	void rosterParserArray(string studentData[]) {
 		Student classRosterArray[sizeof(studentData)];
@@ -53,8 +73,9 @@ public:
 					dataEntry += line[j];
 				}
 			}
-			Student student = studentArray; // Is this backwards?
-			/*student.studentID = studentArray[0];
+			//Student student = studentArray; // Is this backwards?
+			Student student;
+			student.studentID = studentArray[0];
 			student.firstName = studentArray[1];
 			student.lastName = studentArray[2];
 			student.email = studentArray[3];
@@ -71,7 +92,7 @@ public:
 			else if (studentArray[8] == "SOFTWARE") {
 				student.degreeProgram = DegreeProgram::degree3;
 			}
-			classRosterArray[sizeof(classRosterArray)] = student;*/
+			classRosterArray[sizeof(classRosterArray)] = student;
 		}
 	}
 	

@@ -18,9 +18,9 @@ enum class DegreeProgram {
 	NETWORK,
 	SOFTWARE
 };
-DegreeProgram degree1 = SECURITY;
-DegreeProgram degree2 = NETWORK;
-DegreeProgram degree3 = SOFTWARE;
+DegreeProgram degree1 = "SECURITY";
+DegreeProgram degree2 = "NETWORK";
+DegreeProgram degree3 = "SOFTWARE";
 
 class Student {
 public:
