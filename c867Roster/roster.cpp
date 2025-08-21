@@ -81,35 +81,35 @@ public:
 	
 
 	void printAll(Student classRoster[]) {
-		for (Student student : classRoster) {
-			student.accessor();
+		for (int i = 0; i < sizeof(classRoster); i++) {
+			classRoster[i].accessor();
 		}
 	}
 	void printAverageDaysInCourse(string studentID, Student classRoster[]) {
-		for (const auto& student : classRoster) {
-			if (student.studentID == studentID) {
-				double average = (student.daysInCourse[0] + student.daysInCourse[1] + student.daysInCourse[2]) / 3.0;
+		for (int i = 0; i < sizeof(classRoster); i++) {
+			if (classRoster[i].studentID == studentID) {
+				double average = (classRoster[i].daysInCourse[0] + classRoster[i].daysInCourse[1] + classRoster[i].daysInCourse[2]) / 3.0;
 				std::cout << "Average days in course for " << studentID << ": " << average << "\n";
 				return;
 			}
 		}
 		std::cout << "Student ID " << studentID << " not found.\n";
 	}
-	void printInvalidEmails() {
-		for (const auto& student : classRosterArray) {
-			if (student.email.find('@') == std::string::npos || student.email.find('.') == std::string::npos || student.email.find(' ') != std::string::npos) {
-				std::cout << "Invalid email: " << student.email << "\n";
+	void printInvalidEmails(Student classRoster[]) {
+		for (int i = 0; i < sizeof(classRoster); i++) {
+			if (classRoster[i].email.find('@') == std::string::npos || classRoster[i].email.find('.') == std::string::npos || classRoster[i].email.find(' ') != std::string::npos) {
+				std::cout << "Invalid email: " << classRoster[i].email << "\n";
 			}
 		}
 	}
-	void printByDegreeProgram(DegreeProgram degreeProgram) {
-		for (const auto& student : classRosterArray) {
-			if (student.degreeProgram == degreeProgram) {
-				student.accessor();
+	void printByDegreeProgram(DegreeProgram degreeProgram, Student classRoster[]) {
+		for (int i = 0; i < sizeof(classRoster); i++) {
+			if (classRoster[i].degreeProgram == degreeProgram) {
+				classRoster[i].accessor();
 			}
 		}
 	}
-	void destructor() {
-		delete[] classRosterArray;
+	void destructor(Student classRoster[]) {
+		delete[] classRoster;
 	}
 };
