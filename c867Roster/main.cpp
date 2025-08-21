@@ -23,23 +23,23 @@ int realMain() {
 	"A5,Benjamin,Silver,bsilve10@wgu.edu,26,7,10,15,SOFTWARE" };
 	//studentData[] = student.studentData[]
 	//classRoster.add(studentData);
-	classRoster.rosterParserArray(studentData);
+	Student* processedStudentData = classRoster.rosterParserArray(studentData);
 
 
 	// Step 4: Implement the pseudo code to truly work in the context
-	classRoster.printAll();
-	classRoster.printInvalidEmails();
-	for (int i=0; i < sizeof(classRoster); i++) {
-		classRoster.printAverageDaysInCourse(classRoster[i].studentID);
+	classRoster.printAll(processedStudentData);
+	classRoster.printInvalidEmails(processedStudentData);
+	for (int i=0; i < sizeof(processedStudentData); i++) {
+		classRoster.printAverageDaysInCourse(processedStudentData[i].studentID, processedStudentData);
 	}
 	/*for (Student student : classRoster.classRosterArray) {
 		classRoster.printAverageDaysInCourse(student.studentID);
 	}*/
-	classRoster.remove("A3", classRoster);
-	classRoster.printAll();
+	classRoster.remove("A3", processedStudentData);
+	classRoster.printAll(processedStudentData);
 	std::cout << "End of program.\n";
 	std::cout << "Exiting program...\n";
-	classRoster.destructor();
+	classRoster.destructor(processedStudentData);
 	return 0;
 };
 

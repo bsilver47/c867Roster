@@ -7,6 +7,8 @@ using namespace std;
 
 class Roster {
 public:
+	Student classRoster[5];
+
 	void add(string studentID, string firstName, string lastName, string email, int age, int daysInCourse[], DegreeProgram degreeProgram, Student classRosterArray[]) {
 		Student student;
 		student.studentID = studentID;
@@ -39,7 +41,7 @@ public:
 			std::cout << "Student ID " << studentID << " not found.\n";
 		}
 	}
-	void rosterParserArray(string studentData[]) {
+	Student* rosterParserArray(string studentData[]) {
 		Student classRosterArray[sizeof(studentData)];
 		int size = sizeof(studentData);
 		for (int i = 0; i < size; i++) {
@@ -77,15 +79,16 @@ public:
 			}
 			classRosterArray[sizeof(classRosterArray)] = student;
 		}
+		return classRosterArray;
 	}
 	
 
-	void printAll(Student classRoster[]) {
+	void printAll(Student* classRoster) {
 		for (int i = 0; i < sizeof(classRoster); i++) {
 			classRoster[i].accessor();
 		}
 	}
-	void printAverageDaysInCourse(string studentID, Student classRoster[]) {
+	void printAverageDaysInCourse(string studentID, Student* classRoster) {
 		for (int i = 0; i < sizeof(classRoster); i++) {
 			if (classRoster[i].studentID == studentID) {
 				double average = (classRoster[i].daysInCourse[0] + classRoster[i].daysInCourse[1] + classRoster[i].daysInCourse[2]) / 3.0;
@@ -95,14 +98,14 @@ public:
 		}
 		std::cout << "Student ID " << studentID << " not found.\n";
 	}
-	void printInvalidEmails(Student classRoster[]) {
+	void printInvalidEmails(Student* classRoster) {
 		for (int i = 0; i < sizeof(classRoster); i++) {
 			if (classRoster[i].email.find('@') == std::string::npos || classRoster[i].email.find('.') == std::string::npos || classRoster[i].email.find(' ') != std::string::npos) {
 				std::cout << "Invalid email: " << classRoster[i].email << "\n";
 			}
 		}
 	}
-	void printByDegreeProgram(DegreeProgram degreeProgram, Student classRoster[]) {
+	void printByDegreeProgram(DegreeProgram degreeProgram, Student* classRoster) {
 		for (int i = 0; i < sizeof(classRoster); i++) {
 			if (classRoster[i].degreeProgram == degreeProgram) {
 				classRoster[i].accessor();
