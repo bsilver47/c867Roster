@@ -45,11 +45,11 @@ public:
 		for (int i = 0; i < size; i++) {
 			string line = studentData[i];
 			int linesize = sizeof(line);
-			Student studentArray[5];
+			string studentArray[9];
 			string dataEntry = "";
 			for (int j = 0; j < linesize; j++) {
 				if (line[j] == ',') {
-					studentArray[j].add(dataEntry);
+					studentArray[j] = dataEntry;
 					dataEntry = "";
 				}
 				else {
@@ -67,26 +67,26 @@ public:
 			student.daysInCourse[1] = std::stoi(studentArray[6]);
 			student.daysInCourse[2] = std::stoi(studentArray[7]);
 			if (studentArray[8] == "SECURITY") {
-				student.degreeProgram = DegreeProgram::degree1;
+				student.degreeProgram = DegreeProgram::SECURITY;
 			}
 			else if (studentArray[8] == "NETWORK") {
-				student.degreeProgram = DegreeProgram::degree2;
+				student.degreeProgram = DegreeProgram::NETWORK;
 			}
 			else if (studentArray[8] == "SOFTWARE") {
-				student.degreeProgram = DegreeProgram::degree3;
+				student.degreeProgram = DegreeProgram::SOFTWARE;
 			}
 			classRosterArray[sizeof(classRosterArray)] = student;
 		}
 	}
 	
 
-	void printAll() {
-		for (Student student : classRosterArray) {
+	void printAll(Student classRoster[]) {
+		for (Student student : classRoster) {
 			student.accessor();
 		}
 	}
-	void printAverageDaysInCourse(string studentID) {
-		for (const auto& student : classRosterArray) {
+	void printAverageDaysInCourse(string studentID, Student classRoster[]) {
+		for (const auto& student : classRoster) {
 			if (student.studentID == studentID) {
 				double average = (student.daysInCourse[0] + student.daysInCourse[1] + student.daysInCourse[2]) / 3.0;
 				std::cout << "Average days in course for " << studentID << ": " << average << "\n";
