@@ -112,7 +112,8 @@ public:
 			}
 		}
 	}
-	void destructor(Student classRoster[]) {
+	void destructor(Roster rosterClass, Student classRoster[]) {
 		delete[] classRoster;
+		//delete[] rosterClass;
 	}
 };

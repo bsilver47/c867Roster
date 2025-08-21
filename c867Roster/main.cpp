@@ -39,7 +39,7 @@ int realMain() {
 	classRoster.printAll(processedStudentData);
 	std::cout << "End of program.\n";
 	std::cout << "Exiting program...\n";
-	classRoster.destructor(processedStudentData);
+	classRoster.destructor(classRoster, processedStudentData);
 	return 0;
 };
 
