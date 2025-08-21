@@ -1,9 +1,7 @@
 #include <iostream>
 #include <string>
-#include <vector>
 #include "degree.h"
 #include "student.h"
-//#include "student.cpp"
 #include "roster.h"
 using namespace std;
 
@@ -32,29 +30,14 @@ public:
 			}
 		}
 		if (removalStudentIndex != -1) {
-			for (int i = removalStudentIndex; i < sizeof(classRoster) - 1; i++) {
+			for (int i=removalStudentIndex; i < sizeof(classRoster) - 1; i++) {
 				classRoster[i] = classRoster[i + 1];
 			}
 			classRoster[sizeof(classRoster) - 1] = Student(); // Clear the last element
+			std::cout << "Student ID " << studentID << " removed successfully.\n";
+		} else {
+			std::cout << "Student ID " << studentID << " not found.\n";
 		}
-		else {
-
-		};
-		
-		//for (Student& student : classRoster) {
-		//	if (student.studentID == studentID) {
-		//		std::cout << "Removing student with ID: " << studentID << "\n";
-		//		classRoster.erase(student);
-		//		return;
-		//	}
-		//}
-		/*for (auto it = classRoster.begin(); it != classRoster.end(); ++it) {
-			if (it->studentID == studentID) {
-				classRoster.erase(it);
-				return;
-			}
-		}*/
-		//std::cout << "Student ID " << studentID << " not found.\n";
 	}
 	void rosterParserArray(string studentData[]) {
 		Student classRosterArray[sizeof(studentData)];
