@@ -20,7 +20,7 @@ public:
 		student.degreeProgram = degreeProgram;
 		classRosterArray[sizeof(classRosterArray)] = student;
 	}
-	void remove(string studentID, Roster classRoster) {
+	void remove(string studentID, Student classRoster[]) {
 		for (Student student : classRoster) {
 			if (student.studentID == studentID) {
 				std::cout << "Removing student with ID: " << studentID << "\n";
