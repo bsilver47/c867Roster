@@ -50,7 +50,7 @@ public:
 			string studentArray[9];
 			string dataEntry = "";
 			for (int j = 0; j < linesize; j++) {
-				if (line[j] == ',') {
+				if (line[j] == ',' || linesize == j - 1) {
 					studentArray[j] = dataEntry;
 					dataEntry = "";
 				}
@@ -112,8 +112,9 @@ public:
 			}
 		}
 	}
-	void destructor(Roster rosterClass, Student classRoster[]) {
+	Student* destructor(Roster rosterClass, Student classRoster[]) {
 		delete[] classRoster;
+		return classRoster = nullptr;
 		//delete[] rosterClass;
 	}
 };

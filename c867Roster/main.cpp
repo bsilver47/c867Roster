@@ -24,6 +24,7 @@ int realMain() {
 	//studentData[] = student.studentData[]
 	//classRoster.add(studentData);
 	Student* processedStudentData = classRoster.rosterParserArray(studentData);
+	delete[] studentData;
 
 
 	// Step 4: Implement the pseudo code to truly work in the context
