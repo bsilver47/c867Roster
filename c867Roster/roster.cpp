@@ -99,7 +99,8 @@ public:
 		std::cout << "Student ID " << studentID << " not found.\n";
 	}
 	void printInvalidEmails(Student* classRoster) {
-		for (int i = 0; i < sizeof(classRoster); i++) {
+		int size = (sizeof(classRoster) / sizeof(classRoster[0]));
+		for (int i = 0; i < size; i++) {
 			if (classRoster[i].email.find('@') == std::string::npos || classRoster[i].email.find('.') == std::string::npos || classRoster[i].email.find(' ') != std::string::npos) {
 				std::cout << "Invalid email: " << classRoster[i].email << "\n";
 			}
