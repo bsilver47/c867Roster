@@ -113,7 +113,7 @@ public:
 			}
 		}
 	}
-	Student* destructor(Roster rosterClass, Student classRoster[]) {
+	Student* destructor(Roster& rosterClass, Student classRoster[]) {
 		delete[] classRoster;
 		return classRoster = nullptr;
 		//delete[] rosterClass;
