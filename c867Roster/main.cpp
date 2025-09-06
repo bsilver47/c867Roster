@@ -30,7 +30,7 @@ int realMain() {
 	// Step 4: Implement the pseudo code to truly work in the context
 	classRoster.printAll(processedStudentData);
 	classRoster.printInvalidEmails(processedStudentData);
-	for (int i=0; i < sizeof(processedStudentData); i++) {
+	for (int i=0; i < (sizeof(processedStudentData) / sizeof(processedStudentData[0])); i++) {
 		classRoster.printAverageDaysInCourse(processedStudentData[i].studentID, processedStudentData);
 	}
 	/*for (Student student : classRoster.classRosterArray) {

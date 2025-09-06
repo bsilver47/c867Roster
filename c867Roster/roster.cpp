@@ -20,11 +20,11 @@ public:
 			student.daysInCourse[i] = daysInCourse[i];
 		}
 		student.degreeProgram = degreeProgram;
-		classRosterArray[sizeof(classRosterArray)] = student;
+		classRosterArray[(sizeof(classRosterArray) / sizeof(classRosterArray[0]))] = student;
 	}
 	void remove(string studentID, Student classRoster[]) {
 		int removalStudentIndex = -1;
-		for (int i = 0; i < sizeof(classRoster); i++) {
+		for (int i = 0; i < (sizeof(classRoster) / sizeof(classRoster[0])); i++) {
 			if (studentID == classRoster->studentID) {
 				std::cout << "Found student to be removed, preparing removal now";
 				removalStudentIndex = i;
@@ -32,10 +32,10 @@ public:
 			}
 		}
 		if (removalStudentIndex != -1) {
-			for (int i=removalStudentIndex; i < sizeof(classRoster) - 1; i++) {
+			for (int i=removalStudentIndex; i < (sizeof(classRoster) / sizeof(classRoster[0])) - 1; i++) {
 				classRoster[i] = classRoster[i + 1];
 			}
-			classRoster[sizeof(classRoster) - 1] = Student(); // Clear the last element
+			classRoster[(sizeof(classRoster) / sizeof(classRoster[0])) - 1] = Student(); // Clear the last element
 			std::cout << "Student ID " << studentID << " removed successfully.\n";
 		} else {
 			std::cout << "Student ID " << studentID << " not found.\n";
@@ -43,10 +43,10 @@ public:
 	}
 	Student* rosterParserArray(string studentData[]) {
 		Student classRosterArray[sizeof(studentData)];
-		int size = sizeof(studentData);
+		int size = (sizeof(studentData) / sizeof(studentData[0]));
 		for (int i = 0; i < size; i++) {
 			string line = studentData[i];
-			int linesize = sizeof(line);
+			int linesize = sizeof(line); // may need to change to something along the lines of: sizeof(line) / sizeof(char);
 			string studentArray[9];
 			string dataEntry = "";
 			for (int j = 0; j < linesize; j++) {
@@ -77,7 +77,7 @@ public:
 			else if (studentArray[8] == "SOFTWARE") {
 				student.degreeProgram = DegreeProgram::SOFTWARE;
 			}
-			classRosterArray[sizeof(classRosterArray)] = student;
+			classRosterArray[sizeof(classRosterArray)] = student; // review what that's supposed to do
 		}
 		return classRosterArray;
 	}
