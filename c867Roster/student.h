@@ -19,7 +19,7 @@ enum class DegreeProgram {
 	SOFTWARE
 };
 
-std::string degreeProgramToString(DegreeProgram degree) {
+string degreeProgramToString(DegreeProgram degree) {
 	switch (degree) {
 		case DegreeProgram::SECURITY: return "SECURITY";
 		case DegreeProgram::NETWORK: return "NETWORK";
