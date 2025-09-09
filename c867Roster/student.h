@@ -7,12 +7,6 @@
 # pragma once
 using namespace std;
 
-//enum class DegreeProgram {
-//	degree1 = "SECURITY",
-//	degree2 = "NETWORK",
-//	degree3 = "SOFTWARE"
-//};
-
 enum class DegreeProgram {
 	SECURITY,
 	NETWORK,
@@ -120,5 +114,3 @@ public:
 		std::cout << studentID << "\t First Name: " << firstName << "\t Last Name: " << lastName << "\t Email: " << email << "\t Age: " << age << "\t daysInCourse: " << daysInCourse[0] << ", " << daysInCourse[1] << ", " << daysInCourse[2] << "\t Degree Program: " << degreeProgramToString(degreeProgram) << "\n";
 	}
 };
-
-//#endif // STUDENT_H
