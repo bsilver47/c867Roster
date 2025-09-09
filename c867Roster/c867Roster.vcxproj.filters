@@ -18,5 +18,11 @@
     <ClCompile Include="c867Roster.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="roster.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="student.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
