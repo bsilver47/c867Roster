@@ -42,7 +42,7 @@ Student* Roster::rosterParserArray(string studentData[], int size) {
 void Roster::printAll(Student* classRoster, int size) {
 	for (int i = 0; i < size; i++) {
 		if (!classRoster[i].studentID.empty())
-			classRoster[i].accessor();
+			classRoster[i].printer();
 	}
 }
 
