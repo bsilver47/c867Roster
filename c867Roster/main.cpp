@@ -30,6 +30,7 @@ int realMain() {
 	for (int i=0; i < numStudents; i++) {
 		classRoster.printAverageDaysInCourse(processedStudentData[i].studentID, processedStudentData, numStudents);
 	}
+	classRoster.printByDegreeProgram(DegreeProgram::SOFTWARE, processedStudentData);
 	classRoster.remove("A3", processedStudentData, numStudents);
 	classRoster.printAll(processedStudentData, numStudents /*-1)*/);
 	std::cout << "End of program.\n";
