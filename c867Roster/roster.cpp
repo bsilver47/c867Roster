@@ -85,11 +85,12 @@ void Roster::remove(string studentID, Student* classRoster, int size) {
 	}
 }
 
-void Roster::printByDegreeProgram(DegreeProgram degreeProgram, Student* classRoster) {
+void Roster::printByDegreeProgram(DegreeProgram degreeProgram) {
 	std::cout << "Students in the " << degreeProgramToString(degreeProgram) << " degree program: \n";
+	extern Student* processedStudentData;
 	for (int i = 0; i < 5; i++) {
-		if (classRoster[i].degreeProgram == degreeProgram) {
-			classRoster[i].printer();
+		if (processedStudentData[i].degreeProgram == degreeProgram) {
+			processedStudentData[i].printer();
 		}
 	}
 }
