@@ -39,17 +39,17 @@ Student* Roster::rosterParserArray(string studentData[], int size) {
 	return classRosterArray;
 }
 
-void Roster::printAll(Student* classRoster, int size) {
+void Roster::printAll(int size) {
 	for (int i = 0; i < size; i++) {
-		if (!classRoster[i].studentID.empty())
-			classRoster[i].printer();
+		if (!studentArray[i].studentID.empty())
+			studentArray[i].printer();
 	}
 }
 
-void Roster::printAverageDaysInCourse(string studentID, Student* classRoster, int size) {
+void Roster::printAverageDaysInCourse(string studentID, int size) {
 	for (int i = 0; i < size; i++) {
-		if (classRoster[i].studentID == studentID) {
-			double average = (classRoster[i].daysInCourse[0] + classRoster[i].daysInCourse[1] + classRoster[i].daysInCourse[2]) / 3.0;
+		if (studentArray[i].studentID == studentID) {
+			double average = (studentArray[i].daysInCourse[0] + studentArray[i].daysInCourse[1] + studentArray[i].daysInCourse[2]) / 3.0;
 			std::cout << "Average days in course for " << studentID << ": " << average << "\n";
 			return;
 		}
@@ -57,18 +57,18 @@ void Roster::printAverageDaysInCourse(string studentID, Student* classRoster, in
 	std::cout << "Student ID " << studentID << " not found.\n";
 }
 
-void Roster::printInvalidEmails(Student* classRoster, int size) {
+void Roster::printInvalidEmails(int size) {
 	for (int i = 0; i < size; i++) {
-		if (classRoster[i].email.find('@') == string::npos || classRoster[i].email.find('.') == string::npos || classRoster[i].email.find(' ') != string::npos) {
-			std::cout << "Invalid email: " << classRoster[i].email << "\n";
+		if (studentArray[i].email.find('@') == string::npos || studentArray[i].email.find('.') == string::npos || studentArray[i].email.find(' ') != string::npos) {
+			std::cout << "Invalid email: " << studentArray[i].email << "\n";
 		}
 	}
 }
 
-void Roster::remove(string studentID, Student* classRoster, int size) {
+void Roster::remove(string studentID, int size) {
 	int removalStudentIndex = -1;
 	for (int i = 0; i < size; i++) {
-		if (studentID == classRoster[i].studentID) {
+		if (studentID == studentArray[i].studentID) {
 			std::cout << "Found student to be removed, preparing removal now\n";
 			removalStudentIndex = i;
 			break;
@@ -76,9 +76,9 @@ void Roster::remove(string studentID, Student* classRoster, int size) {
 	}
 	if (removalStudentIndex != -1) {
 		for (int i = removalStudentIndex; i < size - 1; i++) {
-			classRoster[i] = classRoster[i + 1];
+			studentArray[i] = studentArray[i + 1];
 		}
-		classRoster[size - 1] = Student(); // Clear the last element
+		studentArray[size - 1] = Student(); // Clear the last element
 		std::cout << "Student ID " << studentID << " removed successfully.\n";
 	} else {
 		std::cout << "Student ID " << studentID << " not found.\n";
@@ -87,10 +87,9 @@ void Roster::remove(string studentID, Student* classRoster, int size) {
 
 void Roster::printByDegreeProgram(DegreeProgram degreeProgram) {
 	std::cout << "Students in the " << degreeProgramToString(degreeProgram) << " degree program: \n";
-	extern Student* processedStudentData;
 	for (int i = 0; i < 5; i++) {
-		if (processedStudentData[i].degreeProgram == degreeProgram) {
-			processedStudentData[i].printer();
+		if (studentArray[i].degreeProgram == degreeProgram) {
+			studentArray[i].printer();
 		}
 	}
 }

@@ -5,11 +5,12 @@ using std::string;
 
 class Roster {
 public:
+	Student* studentArray = nullptr;
     Student* rosterParserArray(string studentData[], int size);
-    void printAll(Student* classRoster, int size);
-    void printAverageDaysInCourse(string studentID, Student* classRoster, int size);
-    void printInvalidEmails(Student* classRoster, int size);
-    void remove(string studentID, Student* classRoster, int size);
-    void printByDegreeProgram(DegreeProgram degreeProgram, Student* classRoster, int size);
+    void printAll(int size);
+    void printAverageDaysInCourse(string studentID, int size);
+    void printInvalidEmails(int size);
+    void remove(string studentID, int size);
+    void printByDegreeProgram(DegreeProgram degreeProgram);
     void destructor(Student* classRoster);
 };
