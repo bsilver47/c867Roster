@@ -1,8 +1,6 @@
 #include <iostream>
 #include <string>
 #include <sstream>
-#include "degree.h"
-#include "student.h"
 #include "roster.h"
 using namespace std;
 
