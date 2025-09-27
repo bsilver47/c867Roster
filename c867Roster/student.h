@@ -1,17 +1,7 @@
 #include <iostream>
-#include <string>
-//#include "degree.h"
-//#include "roster.cpp"
-//#ifndef STUDENT_H
-//#define STUDENT_H
+#include "degree.h"
 # pragma once
 using namespace std;
-
-enum class DegreeProgram {
-	SECURITY,
-	NETWORK,
-	SOFTWARE
-};
 
 string degreeProgramToString(DegreeProgram degree);
 

@@ -39,6 +39,3 @@ int realMain() {
 	classRoster.destructor(processedStudentData);
 	return 0;
 };
-
-
- 
